@@ -9,22 +9,22 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "category")
+@Table(name = "categories")
 public class Category {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
 
-    @Column(name = "category_name")
-    private @NotBlank String categoryName;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 
-    @Column(name = "description")
-    private @NotBlank String description;
+	@Column(name = "category_name")
+	private @NotBlank String categoryName;
 
-    @Column(name = "image_url")
+	private @NotBlank String description;
+
 	private @NotBlank String imageUrl;
 
-    public Category() {
+
+	public Category() {
 	}
 
 	public Category(@NotBlank String categoryName, @NotBlank String description) {
@@ -54,6 +54,11 @@ public class Category {
 		this.description = description;
 	}
 
+	@Override
+	public String toString() {
+		return "User {category id=" + id + ", category name='" + categoryName + "', description='" + description + "'}";
+	}
+
 	public String getImageUrl() {
 		return imageUrl;
 	}
@@ -68,10 +73,5 @@ public class Category {
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-    @Override
-	public String toString() {
-		return "User {category id=" + id + ", category name='" + categoryName + "', description='" + description + "'}";
 	}
 }
