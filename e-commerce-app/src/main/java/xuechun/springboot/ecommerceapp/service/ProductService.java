@@ -2,11 +2,13 @@ package xuechun.springboot.ecommerceapp.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import xuechun.springboot.ecommerceapp.dto.Product.ProductDto;
+import xuechun.springboot.ecommerceapp.exceptions.ProductNotFoundException;
 import xuechun.springboot.ecommerceapp.model.Category;
 import xuechun.springboot.ecommerceapp.model.Product;
 import xuechun.springboot.ecommerceapp.repository.ProductRepository;
@@ -42,6 +44,13 @@ public class ProductService {
 
     public boolean findById(Integer productId) {
         return productRepository.findById(productId).isPresent();
+    }
+
+    public Product getProductById(Integer productId) throws ProductNotFoundException{
+        if (!findById(productId)) {
+            throw new ProductNotFoundException("Product id is invalid " + productId);
+        }
+        return productRepository.findById(productId).get();
     }
 
     public void updateProduct(Integer productId, ProductDto productDto, Category category) {

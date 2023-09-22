@@ -7,9 +7,9 @@
         <header class="text-left text-white py-5">
           <h3 class="mb-4 rounded"><a href="#start-shopping" class="bg-white px-2 py-2 rounded" id="heading">Start
               Shopping</a></h3>
-          <p id="content" class="lead mb-0 bg-dark p-1 rounded">Simple Coding Market is for educational purposes only.
-            It can be used by developers to learn about developing an ecommerce application complete with backend and
-            frontend for Web and Android</p>
+          <p id="content" class="lead mb-0 bg-dark p-1 rounded">E-shop website is for self-study purposes only.
+            It is used by a new developer in Springboot and Vue to learn about developing an ecommerce application complete with backend and
+            frontend for Web.</p>
         </header>
       </div>
     </div>
