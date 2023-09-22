@@ -50,8 +50,13 @@
                 Accounts
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <!-- <router-link class="dropdown-item" v-if="!token" :to="{ name: 'Signin' }">Wishlist</router-link>
+                <router-link class="dropdown-item" v-else :to="{ name: 'Wishlist' }">Wishlist</router-link> -->
+                <router-link class="dropdown-item" v-if="!token" :to="{ name: 'Signin' }">WishList</router-link>
                 <router-link class="dropdown-item" v-if="!token" :to="{ name: 'Signin' }">Log In</router-link>
                 <router-link class="dropdown-item" v-if="!token" :to="{ name: 'Signup' }">Sign Up</router-link>
+                <router-link class="dropdown-item" v-if="token" :to="{ name: 'WishList' }">WishList</router-link>
+                <router-link class="dropdown-item" v-if="token" :to="{ name: 'Cart' }">My Cart</router-link>
                 <a class="dropdown-item" v-if="token" href="#" @click="signout">Sign Out</a>
             </div>
         </li>
@@ -102,4 +107,5 @@ export default {
     border-color: #febd69;
     border-top-right-radius: 2px;
     border-bottom-right-radius: 2px;
-}</style>
+}
+</style>
